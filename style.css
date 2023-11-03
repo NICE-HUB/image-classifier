@@ -1,0 +1,28 @@
+*{
+    background-color: rgb(56, 14, 225);
+    color: rgb(207, 224, 224);
+}
+
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    align-items: center;
+}
+
+li.nav-item {
+    float: left;
+}
+
+li.nav-item a {
+    display: block;
+    color: white; 
+    text-align: center;
+    padding: 14px 166px;
+    text-decoration: none;
+}
+
+li.nav-item a:hover {
+    background-color: #8d1a1a;
+}

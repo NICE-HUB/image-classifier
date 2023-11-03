@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Classifier</title>
+</head>
+<link href="/style.css" rel="stylesheet">
+<body>
+    <h1>Image Classifier</h1>
+    <ul class="navbar">
+        <li class="nav-item"><a href="#home">Home</a></li>
+        <li class="nav-item"><a href="#about">About Us</a></li>
+        <li class="nav-item"><a href="#contact">Contact Us</a></li>
+    </ul>
+
+    
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <input type="submit" value="Classify Image">
+    </form>
+    <script src="/upload.js"></script>
+
+    <script>
+        const form = document.querySelector('form');
+        const predictionDiv = document.querySelector('#prediction');
+     
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+     
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const result = await response.text();
+                predictionDiv.textContent = `Prediction: ${result}`;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>
